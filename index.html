@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Гаранты </title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(270deg, #0f172a, #1e293b, #0f172a);
+      background-size: 600% 600%;
+      animation: moveBg 15s ease infinite;
+    }
+    @keyframes moveBg {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 6s infinite alternate;
+    }
+    @keyframes gradientMove {
+      from { background-position: 0% }
+      to { background-position: 100% }
+    }
+    header p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-top: 8px;
+    }
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+    input {
+      padding: 12px 18px;
+      border-radius: 25px;
+      border: none;
+      width: 340px;
+      font-size: 1rem;
+      outline: none;
+      background: #334155;
+      color: #f1f5f9;
+      box-shadow: 0 0 10px rgba(59,130,246,0.4);
+      transition: 0.3s;
+    }
+    input:focus {
+      background: #475569;
+      box-shadow: 0 0 15px rgba(139,92,246,0.6);
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+      flex: 1;
+    }
+    .card {
+      background: rgba(30,41,59,0.9);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 15px rgba(56,189,248,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(59,130,246,0.4);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      color: #38bdf8;
+    }
+    .card p {
+      margin: 4px 0;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 25px;
+      background: linear-gradient(90deg,#06b6d4,#3b82f6,#8b5cf6);
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      filter: brightness(1.2);
+    }
+    .copy {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .copy:hover {
+      background: #475569;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      background: rgba(15,23,42,0.6);
+    }
+
+    /* 🔥 Sidebar Card */
+    .sidebar-card {
+      position: fixed;
+      top: 150px;
+      right: 20px;
+      width: 260px;
+      background: rgba(30,41,59,0.95);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: -4px 4px 15px rgba(0,0,0,0.5), 0 0 10px rgba(59,130,246,0.3);
+      color: #f8fafc;
+      animation: slideIn 0.8s ease;
+    }
+    .sidebar-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .sidebar-card p {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+    .sidebar-card a {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #334155;
+      color: #e2e8f0;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .sidebar-card a:hover {
+      background: #475569;
+      box-shadow: 0 0 10px rgba(139,92,246,0.5);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Таблица гарантов и скупщиков NFT</h1>
+    <p></p> Только проверенные гаранты для безопасных сделок в Telegram</p>
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Поиск по имени или описанию...">
+  </div>
+
+  <div class="container" id="cards"></div>
+
+  <footer>
+    © 2025 — Оффециальный сервис гарантов. Все права защищены.
+  </footer>
+
+  <!-- 🔥 Sidebar Card -->
+  <div class="sidebar-card">
+    <h2>Создатели сайта</h2>
+    <p>Официальные создатели сайта, а так же гарант-бота:</p>
+    <a href="https://t.me/SapphireDeals_bot" target="_blank">@SapphireDeals_bot</a>
+  </div>
+
+  <script>
+    const guarantors = [
+      { name: "SkyplineNFT", handle: "@vault_guard", rating: 4.9, reviews: 94, fee: "0%", since: "2024", description: "Проверенный эскроу, быстрые сделки." },
+      { name: "Wxezd", handle: "@Wxezd", rating: 4.8, reviews: 132, fee: "0%", since: "2025", description: "Большая база клиентов, работает с СНГ." },
+      { name: "encore", handle: "@BestGlobalGuarantee", rating: 4.6, reviews: 247, fee: "0%", since: "2023", description: "Профессиональная команда, быстрые проверки NFT." },
+      { name: "SapphireDeals", handle: "@SapphireDeals_bot", rating: 5, reviews: 134.000, fee: "0%", since: "2022", description: "Гарнт бот для сделок,не проводите сделки вне бота" }
+    ];
+
+    const container = document.getElementById("cards");
+    const search = document.getElementById("search");
+
+    function render(data) {
+      container.innerHTML = "";
+      data.forEach(g => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="copy" onclick="copyHandle('${g.handle}')">Скопировать</div>
+          <h2>${g.name}</h2>
+          <p><b>Хэндл:</b> ${g.handle}</p>
+          <p><b>Рейтинг:</b> ${g.rating} ⭐ (${g.reviews} отзывов)</p>
+          <p><b>Комиссия:</b> ${g.fee}</p>
+          <p><b>С года:</b> ${g.since}</p>
+          <p>${g.description}</p>
+          <a href="https://t.me/${g.handle.replace('@','')}" target="_blank" class="btn">Открыть в Telegram</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function copyHandle(handle) {
+      navigator.clipboard.writeText(handle).then(() => {
+        alert("Хэндл " + handle + " скопирован!");
+      });
+    }
+
+    search.addEventListener("input", () => {
+      const q = search.value.toLowerCase();
+      const filtered = guarantors.filter(g =>
+        g.name.toLowerCase().includes(q) ||
+        g.description.toLowerCase().includes(q) ||
+        g.handle.toLowerCase().includes(q)
+      );
+      render(filtered);
+    });
+
+    render(guarantors);
+  </script>
+</body>
+</html>
